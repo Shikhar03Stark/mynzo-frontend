@@ -43,10 +43,6 @@ export default () => {
   const savedNews = () => getFromLocalStorage(action.SAVED_ITEMS, []);
   const [savedNewsState, setSavedNewsState] = useState(savedNews());
 
-  const newsInSaved = (id) => {
-    return savedNews().find((newsId) => id === newsId);
-  };
-
   const increaseIndexBy = (amt) => {
     let changed = false;
     if (viewSavedState && savedNewsState.length > 0) {
@@ -65,10 +61,6 @@ export default () => {
           exploreNewsState.length
       );
       changed = true;
-    }
-
-    if (changed) {
-      setInLocalStorage(action.CURRENT_NEWS_ITEM, setCurrentNewsState, null);
     }
   };
 
